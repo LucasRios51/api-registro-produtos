@@ -1,0 +1,27 @@
+[project]
+name = "workshop-1-jupyter-ao-deploy"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "LucasRios",email = "lucasriosbarcelos1996@gmail.com"}
+]
+readme = "README.md"
+requires-python = "3.11.6"
+dependencies = [
+    "fastapi (>=0.115.12,<0.116.0)",
+    "uvicorn (>=0.34.2,<0.35.0)",
+    "taskipy (>=1.14.1,<2.0.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "httpx (>=0.28.1,<0.29.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+
+run = "uvicorn main:app --reload"
+test = "pytest -v testes.py"
+kill = "kill -9 $(lsof - t -i:8000)"
