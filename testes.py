@@ -12,3 +12,13 @@ def test_ola_mundo():
 def test_ola_mundo_json():
     response = client.get("/")
     assert response.json() == {"Olá": "Mundo"}
+
+
+def test_listar_produtos_status_code():
+    response = client.get("/produtos")
+    assert response.status_code == 200
+
+
+def test_tamnho_da_lista_de_produtos():
+    response = client.get("/produtos")
+    assert len(response.json()) == 3
