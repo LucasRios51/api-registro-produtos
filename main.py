@@ -9,7 +9,7 @@ produtos: List[Dict[str, any]] = [
         "id": 1,
         "nome": "Smartphone",
         "descricao": "Um telefone que é inteligente",
-        "preco": 1500.00,
+        "preco": 15000.00,
     },
     {
         "id": 2,
